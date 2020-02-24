@@ -19,5 +19,7 @@ public class First {
 		ArrayTask.task14();
 		ArrayTask.task15();
 		ArrayTask.task16();
+		ArrayTask.task17();
+		ArrayTask.task19();
 	}
 }

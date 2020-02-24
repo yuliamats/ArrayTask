@@ -62,7 +62,7 @@ public class ArrayTask {
 	public static void task03() {
 		boolean flag = true;
 		int[] mas1 = new int[] { -1, 2, 5, 7, 10, -5, 14, 0 };
-		
+
 		printMas(mas1);
 
 		for (int i = 0; i < mas1.length; i++) {
@@ -92,7 +92,7 @@ public class ArrayTask {
 		initDoubleMas(masA);
 		printDoubleMas(masA);
 
-		for (int i = 0; i < masA.length; i++) {
+		for (int i = 0; i < masA.length - 1; i++) {
 			if (masA[i] > masA[i + 1]) {
 				flag = false;
 				break;
@@ -125,7 +125,7 @@ public class ArrayTask {
 				count++;
 			}
 		}
-		
+
 		if (count == 0) {
 			System.out.println("четных чисел в массиве нет");
 			return;
@@ -186,7 +186,7 @@ public class ArrayTask {
 				count++;
 			}
 		}
-		
+
 		printDoubleMas(masA);
 		System.out.println("количество замен равно " + count);
 		System.out.println("");
@@ -401,7 +401,7 @@ public class ArrayTask {
 
 		int m = masA.length / 2;
 		double[] mas1 = new double[m];
-		
+
 		int j = 0;
 		for (int i = 0; i < m; i++) {
 			mas1[j] = masA[i] + masA[masA.length - 1 - i];
@@ -412,6 +412,77 @@ public class ArrayTask {
 
 		System.out.println("max = " + max);
 		System.out.println("");
+	}
+
+	// Дана последовательность целых чисел a1. a2, ,, an. Образовать новую
+	// последовательность, выбросив из исходной те члены, которые равны min(a1. a2,
+	// ,, an).
+
+	public static void task17() {
+
+		double[] masA = new double[] { 2.2, 1.5, 0.5, -1.1, 3.4, -1.1, 7.7, 8.2, 4.4, 2.2 };
+		
+		printDoubleMas(masA);
+
+		int[] mas1 = masOfindexOfMin(masA);
+
+		double[] masRes = new double[masA.length - mas1.length];
+
+		int j = 0;
+		int y = 0;
+		for (int i = 0; i < masA.length; i++) {
+			if (i != mas1[j]) {
+				masRes[y] = masA[i];
+				y++;
+			} else {
+				if (j < mas1.length - 1) {
+					j++;
+				}
+			}
+		}
+		printDoubleMas(masRes);
+	}
+
+	// В массиве целых чисел с количеством элементов n найти наиболее часто
+	// встречающееся число. Если таких чисел несколько, то определить наименьшее из
+	// них.
+
+	public static void task19() {
+
+		int n = 20;
+
+		double[] mas = new double[n];
+
+		initDoubleMas(mas);
+		printDoubleMas(mas);
+
+		int maxCount = calcMaxOfRepeateElem(mas);
+		double min = 0;
+
+		int count = calcCountOfRepeateElem(mas);
+		double[] masRes = new double[count];
+		int y = 0;
+
+		if (maxCount == 1) {
+			System.out.println("все элементы массива уникальны");
+		} else {
+			for (int i = 0; i < mas.length; i++) {
+				int countOfRepeate = 1;
+				for (int j = i; j < mas.length - 1; j++) {
+					if (mas[i] == mas[j + 1]) {
+						countOfRepeate++;
+					}
+				}
+
+				if (maxCount == countOfRepeate) {
+					masRes[y] = mas[i];
+					y++;
+				}
+			}
+
+			min = minNum(masRes);
+			System.out.println("наименьшее из наиболее часто встречающихся чисел равно " + min);
+		}
 	}
 
 	public static void initMas(int[] mas) {
@@ -560,4 +631,62 @@ public class ArrayTask {
 		return mas1;
 	}
 
+	public static int[] masOfindexOfMin(double[] mas) {
+		int countIndexOfMin = 0;
+
+		double min = minNum(mas);
+		for (int i = 1; i < mas.length; i++) {
+			if (mas[i] == min) {
+				countIndexOfMin++;
+			}
+		}
+		int[] mas1 = new int[countIndexOfMin];
+
+		int j = 0;
+		for (int i = 1; i < mas.length; i++) {
+			if (mas[i] == min) {
+				mas1[j] = i;
+				j++;
+			}
+		}
+		return mas1;
+	}
+
+	public static int calcMaxOfRepeateElem(double[] mas) {
+		int count = 0;
+		int maxCount = 0;
+
+		for (int i = 0; i < mas.length; i++) {
+			count = 0;
+			for (int j = i; j < mas.length; j++) {
+				if (mas[i] == mas[j]) {
+					count++;
+				}
+				if (maxCount < count) {
+					maxCount = count;
+				}
+			}
+		}
+		return maxCount;
+	}
+
+	public static int calcCountOfRepeateElem(double[] mas) {
+		int count = 0;
+		int maxCount = calcMaxOfRepeateElem(mas);
+
+		for (int i = 0; i < mas.length; i++) {
+			int countOfRepeate = 1;
+			for (int j = i; j < mas.length - 1; j++) {
+				if (mas[i] == mas[j + 1]) {
+					countOfRepeate++;
+				}
+			}
+
+			if (maxCount == countOfRepeate) {
+				count++;
+			}
+
+		}
+		return count;
+	}
 }
