@@ -1,6 +1,7 @@
 package by.htp.les06.main;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class MultiArray {
 
@@ -153,8 +154,8 @@ public class MultiArray {
 		initMas(masA, 0, 9);
 		printMas(masA);
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (masA[i][j] == 7) {
 					count++;
 				}
@@ -175,8 +176,8 @@ public class MultiArray {
 		printMas(masA);
 		System.out.println();
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (i == j) {
 					System.out.printf("%2d ", masA[i][j]);
 				}
@@ -199,9 +200,9 @@ public class MultiArray {
 		int k = 2;
 		int p = 3;
 
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < masA.length; i++) {
 			System.out.println();
-			for (int j = 0; j < m; j++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (j == p - 1) {
 					System.out.printf("%2d ", masA[i][j]);
 				}
@@ -209,8 +210,8 @@ public class MultiArray {
 		}
 		System.out.println("");
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (i == k - 1) {
 					System.out.printf("%2d ", masA[i][j]);
 				}
@@ -234,14 +235,14 @@ public class MultiArray {
 
 		System.out.println();
 
-		for (int i = 0; i < n; i++) {
+		for (int i = 0; i < masA.length; i++) {
 			System.out.println();
 			if (i % 2 == 0) {
-				for (int j = m - 1; j >= 0; j--) {
+				for (int j = masA[i].length - 1; j >= 0; j--) {
 					System.out.printf("%2d ", masA[i][j]);
 				}
 			} else {
-				for (int j = 0; j < m; j++) {
+				for (int j = 0; j < masA[i].length; j++) {
 					System.out.printf("%2d ", masA[i][j]);
 				}
 			}
@@ -262,8 +263,8 @@ public class MultiArray {
 
 		int[][] masA = new int[n][n];
 
-		for (int i = 1; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 1; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (i == j) {
 					masA[i][j] = i;
 				}
@@ -287,8 +288,8 @@ public class MultiArray {
 
 		int[][] masA = new int[n][n];
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (i % 2 == 0) {
 					masA[i][j] = j + 1;
 				} else {
@@ -315,8 +316,8 @@ public class MultiArray {
 
 		int x = n;
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (i == (n - x) && j == (x - 1)) {
 					masA[i][j] = i + 1;
 					x--;
@@ -340,8 +341,8 @@ public class MultiArray {
 
 		int[][] masA = new int[n][n];
 		int x = n;
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (i == j) {
 					masA[i][j] = x - j;
 				}
@@ -364,8 +365,8 @@ public class MultiArray {
 
 		int[][] masA = new int[n][n];
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (i == j) {
 					masA[i][j] = (1 + i) * (2 + i);
 				}
@@ -389,8 +390,8 @@ public class MultiArray {
 
 		int[][] masA = new int[n][n];
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (i == 0 || (i == (n - 1))) {
 					masA[i][j] = 1;
 				} else {
@@ -419,8 +420,8 @@ public class MultiArray {
 
 		int x = n;
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (i == (n - x) && j <= (x - 1)) {
 					masA[i][j] = i + 1;
 				}
@@ -446,8 +447,8 @@ public class MultiArray {
 		int[][] masA = new int[n][n];
 		int x = n - 1;
 
-		for (int i = 0; i < n / 2; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < masA.length / 2; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (j >= i && j <= x) {
 					masA[i][j] = 1;
 				}
@@ -455,8 +456,8 @@ public class MultiArray {
 			x--;
 		}
 
-		for (int i = n / 2; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = masA.length / 2; i < n; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (j >= x && j <= i) {
 					masA[i][j] = 1;
 				}
@@ -481,8 +482,8 @@ public class MultiArray {
 
 		int[][] masA = new int[n][n];
 		int x = n - 1;
-		for (int i = 0; i < n / 2; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < masA.length / 2; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (j <= i || j >= x) {
 					masA[i][j] = 1;
 				}
@@ -490,8 +491,8 @@ public class MultiArray {
 			x--;
 		}
 
-		for (int i = n / 2; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = masA.length / 2; i < n; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (j <= x || j >= i) {
 					masA[i][j] = 1;
 				}
@@ -515,17 +516,17 @@ public class MultiArray {
 		int n = 6;
 
 		int[][] masA = new int[n][n];
-		int z = n;
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (i == j) {
 					masA[i][j] = n;
 				}
 			}
 		}
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (masA[i][j] == n) {
 					int x = n - 1;
 					for (int y = j - 1; y >= 0; y--) {
@@ -554,8 +555,8 @@ public class MultiArray {
 		int[][] masA = new int[n][n];
 		int z = n;
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (i == (n - z) && j == (z - 1)) {
 					masA[i][j] = n;
 					z--;
@@ -563,8 +564,8 @@ public class MultiArray {
 			}
 		}
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				if (masA[i][j] == n) {
 					int x = n - 1;
 					for (int y = j - 1; y >= 0; y--) {
@@ -587,8 +588,8 @@ public class MultiArray {
 
 		double[][] masA = new double[n][n];
 
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < n; j++) {
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
 				masA[i][j] = (double) Math.round(Math.sin((Math.pow(i, 2) - Math.pow(j, 2)) / n) * 100) / 100;
 			}
 		}
@@ -614,15 +615,267 @@ public class MultiArray {
 		int n = mas.length;
 		double[][] masA = new double[n][n];
 
-		int i = 0;
-		int j = 0;
-		for (j = 0; i < n; i++) {
-			for (i = 0; j < n; j++) {
-				masA[i][j] = Math.pow(mas[i], j + 1);
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
+				masA[i][j] = (double) Math.round(Math.pow(mas[j], i + 1) * 100) / 100;
 			}
 		}
 		printDoubleMas(masA);
 		System.out.println("");
+	}
+
+	// Получить квадратную матрицу порядка n:
+	// 1 2 3 n-1 n
+	// n+1 n+2 n+3 2n-1 2n
+	// 2n+1 2n+2 2n+3 3n-1 3n
+	// . . . .. . . ............
+	// (n-1)n+1 (n-1)n+2 .... n2+1 n2
+
+	public static void task25() {
+
+		int n = 6;
+
+		int[][] masA = new int[n][n];
+
+		int temp = 1;
+		for (int i = 0; i < masA.length; i++) {
+			for (int j = 0; j < masA[i].length; j++) {
+				masA[i][j] = temp;
+				temp++;
+
+			}
+		}
+		printMas(masA);
+		System.out.println("");
+	}
+
+	// С клавиатуры вводится двумерный массив чисел размерностью nxm. Выполнить с
+	// массивом следующие действия: а) вычислить сумму отрицательных элементов в
+	// каждой строке; б) определить максимальный элемент в каждой строке; в)
+	// переставить местами максимальный и минимальный элементы матрицы
+
+	public static void task26() {
+		int n = 2;
+		int m = 2;
+		int[][] mas = readMasFromConsole(n, m);
+
+		printMas(mas);
+
+		int[] masOfNegative = masSumOfNegativeElem(mas);
+		print(masOfNegative);
+
+		int[] masOfMax = maxElemOfRow(mas);
+		print(masOfMax);
+
+		int max = maxElemOfMas(mas);
+		int min = minElemOfMas(mas);
+
+		for (int i = 0; i < mas.length; i++) {
+			for (int j = 0; j < mas[i].length; j++) {
+				if (mas[i][j] == min) {
+					mas[i][j] = max;
+				} else if (mas[i][j] == max) {
+					mas[i][j] = min;
+				}
+			}
+		}
+		printMas(mas);
+	}
+
+	// В числовой матрице поменять местами два столбца любых столбца, т. е. все
+	// элементы одного столбца поставить на соответствующие им позиции другого, а
+	// его элементы второго переместить в первый. Номера столбцов вводит
+	// пользователь с клавиатуры.
+
+	public static void task27() {
+		int[][] mas = new int[3][3];
+
+		initMas(mas, 0, 9);
+		printMas(mas);
+
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+
+		System.out.print("введите номер любого столбца числовой матрицы: ");
+		int k = sc.nextInt();
+		System.out.print("введите номер любого столбца числовой матрицы: ");
+		int p = sc.nextInt();
+
+		while (k < 0 || k > mas.length - 1 || p < 0 || p > mas.length - 1) {
+			System.out.print("некорректные данные");
+			System.out.print("введите номер любого столбца числовой матрицы: ");
+			k = sc.nextInt();
+			System.out.print("введите номер любого столбца числовой матрицы: ");
+			p = sc.nextInt();
+		}
+
+		for (int i = 0; i < mas.length; i++) {
+			for (int j = 0; j < mas[i].length; j++) {
+				if (j == k) {
+					int temp = mas[i][k];
+					mas[i][k] = mas[i][p];
+					mas[i][p] = temp;
+				}
+			}
+		}
+
+		printMas(mas);
+	}
+
+	// Задана матрица неотрицательных чисел. Посчитать сумму элементов в каждом
+	// столбце. Определить, какой столбец содержит максимальную сумму.
+
+	public static void task28() {
+		int[][] mas = new int[3][3];
+
+		initMas(mas, 0, 9);
+		printMas(mas);
+
+		int[] mas1 = masSumOfColumn(mas);
+		print(mas1);
+
+		int colNumber = indexOfmaxElemOfMas(mas1);
+		System.out.println("столбец матрицы, содержащий максимальную сумму,: " + (colNumber + 1));
+	}
+
+	// Найти положительные элементы главной диагонали квадратной матрицы
+
+	public static void task29() {
+		int[][] mas = new int[3][3];
+
+		initMas(mas, -9, 9);
+		printMas(mas);
+
+		int[] mas1 = masDiagonalPosElem(mas);
+
+		print(mas1);
+		System.out.println("");
+	}
+
+	// Матрицу 10x20 заполнить случайными числами от 0 до 15. Вывести на экран саму
+	// матрицу и номера строк, в которых число 5 встречается три и более раз.
+
+	public static void task30() {
+		int number = 5;
+		int countOfRepeate = 3;
+
+		int[][] mas = new int[10][20];
+
+		initMas(mas, 0, 15);
+		printMas(mas);
+
+		int[] mas1 = masOfRepeate(mas, number);
+
+		System.out.println(
+				"номера строк, в которых число " + number + " встречаетсся " + countOfRepeate + " и более раз:");
+		printOfRepeate(mas1, countOfRepeate);
+		System.out.println("");
+	}
+
+	// Сформировать матрицу из чисел от 0 до 999, вывести ее на экран. Посчитать
+	// количество двузначных чисел в ней.
+
+	public static void task31() {
+
+		int count;
+
+		int[][] mas = new int[10][10];
+
+		initMas(mas, 0, 99);
+		printMas(mas);
+
+		count = calcTwoDigitElem(mas);
+
+		System.out.println("количество двузначных чисел в матрице равно: " + count);
+		System.out.println("");
+	}
+
+	// Отсортировать строки матрицы по возрастанию и убыванию значений элементов.
+
+	public static void task32() {
+		int[][] mas = new int[3][3];
+
+		initMas(mas, 0, 99);
+		printMas(mas);
+
+		System.out.println("строки матрицы отсортированы по возрастанию");
+		for (int i = 0; i < mas.length; i++) {
+			for (int j = 0; j < mas[i].length; j++) {
+				int min = mas[i][j];
+				int minIndex = j;
+				for (int z = j + 1; z < mas[i].length; z++) {
+					if (mas[i][z] < min) {
+						min = mas[i][z];
+						minIndex = z;
+					}
+				}
+				if (j != minIndex) {
+					int temp = mas[i][j];
+					mas[i][j] = mas[i][minIndex];
+					mas[i][minIndex] = temp;
+				}
+			}
+		}
+
+		System.out.println("строки матрицы отсортированы по убыванию");
+		for (int i = 0; i < mas.length; i++) {
+			for (int j = 0; j < mas[i].length; j++) {
+				int max = mas[i][j];
+				int maxIndex = j;
+				for (int z = j + 1; z < mas[i].length; z++) {
+					if (mas[i][z] > max) {
+						max = mas[i][z];
+						maxIndex = z;
+					}
+				}
+				if (j != maxIndex) {
+					int temp = mas[i][j];
+					mas[i][j] = mas[i][maxIndex];
+					mas[i][maxIndex] = temp;
+				}
+			}
+		}
+		System.out.println("");
+		printMas(mas);
+	}
+
+	// Отсотрировать стобцы матрицы по возрастанию и убыванию значений эементов.
+
+	public static void task33() {
+		int[][] mas = new int[4][4];
+
+		initMas(mas, 0, 99);
+		printMas(mas);
+
+		System.out.println("стролбцы матрицы отсортированы по возрастанию");
+		for (int i = 0; i < mas.length; i++) {
+			for (int z = i + 1; z < mas.length; z++) {
+				for (int j = 0; j < mas[i].length; j++) {
+					if (mas[i][j] > mas[z][j]) {
+						int temp = mas[i][j];
+						mas[i][j] = mas[z][j];
+						mas[z][j] = temp;
+					}
+				}
+			}
+		}
+		System.out.println("");
+		printMas(mas);
+
+		System.out.println("стролбцы матрицы отсортированы по убыванию");
+		for (int i = 0; i < mas.length; i++) {
+			for (int z = i + 1; z < mas.length; z++) {
+				for (int j = 0; j < mas[i].length; j++) {
+					if (mas[i][j] < mas[z][j]) {
+						int temp = mas[i][j];
+						mas[i][j] = mas[z][j];
+						mas[z][j] = temp;
+					}
+				}
+			}
+		}
+		System.out.println("");
+		printMas(mas);
 	}
 
 	public static void printMas(int[][] mas) {
@@ -673,6 +926,178 @@ public class MultiArray {
 			}
 		}
 		return sum;
+	}
+
+	public static int[][] readMasFromConsole(int n, int m) {
+		@SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
+
+		int[][] mas = new int[n][m];
+
+		for (int i = 0; i < mas.length; i++) {
+			for (int j = 0; j < mas[i].length; j++) {
+				System.out.print("введите элемент массива mas[" + i + "] [" + j + "]:");
+				mas[i][j] = scanner.nextInt();
+			}
+		}
+		return mas;
+	}
+
+	public static void print(int[] mas) {
+		if (mas == null) {
+			return;
+		}
+
+		for (int i = 0; i < mas.length; i++) {
+			System.out.printf("%2d ", mas[i]);
+		}
+		System.out.println();
+	}
+
+	public static int[] masSumOfNegativeElem(int[][] mas) {
+		int[] mas1 = new int[mas.length];
+
+		int y = 0;
+		for (int i = 0; i < mas.length; i++) {
+			int sum = 0;
+			for (int j = 0; j < mas[i].length; j++) {
+				if (mas[i][j] < 0) {
+					sum = sum + mas[i][j];
+				}
+			}
+			mas1[y] = sum;
+			y++;
+		}
+		return mas1;
+	}
+
+	public static int[] maxElemOfRow(int[][] mas) {
+		int[] mas1 = new int[mas.length];
+
+		int y = 0;
+		for (int i = 0; i < mas.length; i++) {
+			int max = mas[i][0];
+			for (int j = 0; j < mas[i].length; j++) {
+				if (mas[i][j] > max) {
+					max = mas[i][j];
+				}
+			}
+			mas1[y] = max;
+			y++;
+		}
+		return mas1;
+	}
+
+	public static int maxElemOfMas(int[][] mas) {
+		int max;
+		max = mas[0][0];
+		for (int i = 0; i < mas.length; i++) {
+			for (int j = 0; j < mas[i].length; j++) {
+				if (mas[i][j] > max) {
+					max = mas[i][j];
+				}
+			}
+
+		}
+		return max;
+	}
+
+	public static int minElemOfMas(int[][] mas) {
+		int min;
+		min = mas[0][0];
+		for (int i = 0; i < mas.length; i++) {
+			for (int j = 0; j < mas[i].length; j++) {
+				if (mas[i][j] < min) {
+					min = mas[i][j];
+				}
+			}
+
+		}
+		return min;
+	}
+
+	public static int[] masSumOfColumn(int[][] mas) {
+		int[] mas1 = new int[mas.length];
+
+		int sum = 0;
+		int y = 0;
+		for (int i = 0; i < mas.length; i++) {
+			for (int j = 0; j < mas[i].length; j++) {
+				sum = sum + mas[j][i];
+			}
+			mas1[y] = sum;
+			y++;
+			sum = 0;
+		}
+		return mas1;
+	}
+
+	public static int indexOfmaxElemOfMas(int[] mas) {
+		int indexOfMax = 0;
+
+		int max;
+		max = mas[0];
+		for (int i = 0; i < mas.length; i++) {
+			if (mas[i] > max) {
+				max = mas[i];
+				indexOfMax = i;
+			}
+		}
+		return indexOfMax;
+	}
+
+	public static int[] masDiagonalPosElem(int[][] mas) {
+		int[] mas1 = new int[mas.length];
+
+		int y = 0;
+		for (int i = 0; i < mas.length; i++) {
+			for (int j = 0; j < mas[i].length; j++) {
+				if (i == j && mas[i][j] > 0) {
+					mas1[y] = mas[i][j];
+					y++;
+				}
+			}
+		}
+		return mas1;
+	}
+
+	public static int[] masOfRepeate(int[][] mas, int n) {
+		int count = 0;
+		int[] mas1 = new int[mas.length];
+		int y = 0;
+		for (int i = 0; i < mas.length; i++) {
+			for (int j = 0; j < mas[i].length; j++) {
+				if (mas[i][j] == n) {
+					count++;
+				}
+			}
+			mas1[y] = count;
+			y++;
+			count = 0;
+		}
+		return mas1;
+	}
+
+	public static void printOfRepeate(int[] mas, int repeateNum) {
+		for (int i = 0; i < mas.length; i++) {
+			if (mas[i] >= repeateNum) {
+				System.out.printf("%2d ", (i + 1));
+			}
+		}
+		System.out.println();
+	}
+
+	public static int calcTwoDigitElem(int[][] mas) {
+		int count = 0;
+
+		for (int i = 0; i < mas.length; i++) {
+			for (int j = 0; j < mas[i].length; j++) {
+				if (mas[i][j] > 9 && mas[i][j] < 100) {
+					count++;
+				}
+			}
+		}
+		return count;
 	}
 
 }
