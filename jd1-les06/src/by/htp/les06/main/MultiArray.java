@@ -878,6 +878,170 @@ public class MultiArray {
 		printMas(mas);
 	}
 
+	// Сформировать случайную матрицу m x n, состоящую из нулей и единиц, причем в
+	// каждом столбце число единиц равно номеру столбца.
+
+	public static void task34() {
+		Random random = new Random();
+
+		int m = random.nextInt(15);
+		int n = m;
+
+		int[][] mas = new int[m][n];
+		printMas(mas);
+
+		for (int i = 0; i < mas.length; i++) {
+			int index = i;
+			for (int j = 0; j < mas[i].length; j++) {
+				if (j <= index) {
+					mas[j][i] = 1;
+				}
+			}
+		}
+		System.out.println("");
+		printMas(mas);
+	}
+
+	// Найдите наибольший элемент матрицы и заменить все нечетные элементы на него.
+
+	public static void task35() {
+		int[][] mas = new int[4][4];
+
+		initMas(mas, 0, 99);
+		printMas(mas);
+
+		int max = maxElemOfMas(mas);
+
+		for (int i = 0; i < mas.length; i++) {
+			for (int j = 0; j < mas[i].length; j++) {
+				if (mas[i][j] % 2 != 0) {
+					mas[i][j] = max;
+				}
+			}
+		}
+		System.out.println("");
+		printMas(mas);
+	}
+
+	// Операция сглаживания матрицы дает новую матрицу того же размера, каждый
+	// элемент которой получается как среднее арифметическое соседей
+	// соответствующего элемента исходной матрицы. Построить результат сглаживания
+	// заданной матрицы
+
+	public static void task36() {
+		int[][] mas = new int[4][4];
+
+		initMas(mas, 0, 9);
+		printMas(mas);
+
+		int[][] smoothMas = new int[4][4];
+
+		for (int i = 0; i < mas.length; i++) {
+			int sum = 0;
+			int count = 0;
+			for (int j = 0; j < mas[i].length; j++) {
+				for (int m = i - 1; m <= i + 1; m++) {
+					for (int n = j - 1; n <= j + 1; n++) {
+						if (m >= 0 && m <= mas.length - 1 && n >= 0 && n <= mas[i].length - 1 && (m != i || n != j)) {
+							sum += mas[m][n];
+							count++;
+						}
+					}
+				}
+
+				smoothMas[i][j] = sum / count;
+				sum = 0;
+				count = 0;
+			}
+		}
+		System.out.println("");
+		printMas(smoothMas);
+	}
+
+	// Переставить строки матрицы случайным образом.
+
+	public static void task37() {
+		int[][] mas = new int[5][5];
+
+		initMas(mas, 0, 9);
+		printMas(mas);
+
+		Random random = new Random();
+
+		// номера строк матрицы для перестановки
+		int k = random.nextInt(mas.length);
+		int p = random.nextInt(mas.length);
+
+		while (p == k) {
+			p = random.nextInt(mas.length);
+		}
+
+		for (int i = 0; i < mas.length; i++) {
+			for (int j = 0; j < mas[i].length; j++) {
+				if (i == k) {
+					int temp = mas[k][j];
+					mas[k][j] = mas[p][j];
+					mas[p][j] = temp;
+				}
+			}
+		}
+		printMas(mas);
+	}
+
+	// Найдите сумму двух матриц
+
+	public static void task38() {
+		int m = 5;
+		int n = 5;
+
+		int[][] mas1 = new int[m][n];
+
+		initMas(mas1, 0, 9);
+		printMas(mas1);
+
+		int[][] mas2 = new int[m][n];
+
+		initMas(mas2, 0, 9);
+		printMas(mas2);
+
+		int[][] sumMas = new int[m][n];
+
+		for (int i = 0; i < sumMas.length; i++) {
+			for (int j = 0; j < sumMas[i].length; j++) {
+				sumMas[i][j] = mas1[i][j] + mas2[i][j];
+			}
+		}
+
+		printMas(sumMas);
+	}
+
+	// Найдите произведение двух матриц
+
+	public static void task39() {
+		int m = 5;
+		int n = 5;
+
+		int[][] mas1 = new int[m][n];
+
+		initMas(mas1, 0, 9);
+		printMas(mas1);
+
+		int[][] mas2 = new int[m][n];
+
+		initMas(mas2, 0, 9);
+		printMas(mas2);
+
+		int[][] sumMas = new int[m][n];
+
+		for (int i = 0; i < sumMas.length; i++) {
+			for (int j = 0; j < sumMas[i].length; j++) {
+				sumMas[i][j] = mas1[i][j] * mas2[i][j];
+			}
+		}
+
+		printMas(sumMas);
+	}
+
 	public static void printMas(int[][] mas) {
 
 		if (mas == null) {

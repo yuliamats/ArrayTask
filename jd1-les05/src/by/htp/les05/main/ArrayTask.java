@@ -421,7 +421,7 @@ public class ArrayTask {
 	public static void task17() {
 
 		double[] masA = new double[] { 2.2, 1.5, 0.5, -1.1, 3.4, -1.1, 7.7, 8.2, 4.4, 2.2 };
-		
+
 		printDoubleMas(masA);
 
 		int[] mas1 = masOfindexOfMin(masA);
@@ -483,6 +483,40 @@ public class ArrayTask {
 			min = minNum(masRes);
 			System.out.println("наименьшее из наиболее часто встречающихся чисел равно " + min);
 		}
+	}
+
+	// Дан целочисленный массив с количеством элементов п. Сжать массив, выбросив из
+	// него каждый второй элемент (освободившиеся элементы заполнить нулями).
+	// Примечание. Дополнительный массив не использовать.
+
+	public static void task20() {
+		int n = 8;
+
+		double[] mas = new double[n];
+
+		initDoubleMas(mas);
+		printDoubleMas(mas);
+
+		int countOfevenElem = calcEvenElem(mas);
+
+		for (int i = 1; i < mas.length - countOfevenElem; i++) {
+			mas[i] = mas[i * 2];
+		}
+		printDoubleMas(mas);
+		System.out.println("");
+
+		if (mas.length % 2 == 0) {
+			for (int i = mas.length - 1; i >= countOfevenElem; i--) {
+				mas[i] = 0;
+			}
+		} else {
+			for (int i = mas.length - 1; i > countOfevenElem; i--) {
+				mas[i] = 0;
+			}
+		}
+
+		printDoubleMas(mas);
+		System.out.println("");
 	}
 
 	public static void initMas(int[] mas) {
@@ -689,4 +723,5 @@ public class ArrayTask {
 		}
 		return count;
 	}
+
 }
